@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/style.css">
+  <script type = "text/javascript" src = "https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/d3-simple-slider"></script>
+  <script src="static/papaparse.min.js" defer></script>
+  <script src="static/scriptQuadBezier.js" defer></script>
+  <link rel="shortcut icon" href="#">
+</head>
+
+<body>
+  <div class="sidenav">
+    <img src="static/logo.png" alt="AchourFoil" id="logo">
+    <a href="index.html">UIUC Airfoil Database</a>
+    <a href="quadBezier.html">Quadratic Bezier</a>
+  </div>
+
+  <div id = "topMenu">
+    <h1 class = 'title'>Quadratic Bezier </h1>
+    <p id = "powered">powered by Xfoil</p>
+  </div>
+
+  <div id = "main">
+      
+
+    <div class = "box" id="boxPlot">
+      <div id="plot2_container" class="plot_container">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class = "plot" id="plot2">
+          <defs>
+            <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="0.5"/>
+            </pattern>
+            <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+              <rect width="100" height="100" fill="url(#smallGrid)"/>
+              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+    </div>
+
+    <div class='box' id="boxSliders">
+      <div class="slider" id = "sliderRe">
+        <p class = 'sliderValue'>Re</p>
+      </div>
+      <div class="slider" id = "sliderM">
+        <p class = 'sliderValue'>M</p>
+      </div>
+      <div class="slider" id = "sliderA">
+        <p class = 'sliderValue'>&alpha;</p>
+      </div>
+      <p hidden id="Revalue">1e6</p>
+      <p hidden id="Mvalue">0</p>
+      <p hidden id="Avalue">0</p>
+    </div>
+
+    <div class='box' id="boxAero">
+      <div class = 'resultBox'>
+        <p class="resultLabel">CL</p>
+        <p id = "resultCL"></p>
+      </div>
+      <div class = 'resultBox'>
+        <p class="resultLabel">CD</p>
+        <p id = "resultCD"></p>
+      </div>
+      <div class = 'resultBox'>
+        <p class="resultLabel">CM</p>
+        <p id = "resultCM"></p>
+      </div>
+      <div class = 'resultBox'>
+        <p class="resultLabel">L/D</p>
+        <p id = "resultLD"></p>
+      </div>
+      <div class = 'resultBox'>
+        <p class="resultLabel">Area</p>
+        <p id = "resultVol"></p>
+      </div>
+
+    </div>
+
+    <div class='box' id="boxCp">
+
+    </div>
+  </div>
+</body>
+</html>
